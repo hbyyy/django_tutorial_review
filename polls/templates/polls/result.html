@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap.css' %}">
+
+<h1>{{ question.question }}</h1>
+
+<ul>
+    {% for choice in question.choice_set.all %}
+        <li>
+        {{ forloop.counter}} : {{ choice.choice_text }} (Vote : {{ choice.votes }})
+        </li>
+    {% endfor %}
+    <br>
+    <a href="{% url 'polls:detail' question_id=question.id%}">Vote again?</a>
+</ul>

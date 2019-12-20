@@ -20,7 +20,7 @@ class Question(models.Model):
 
 class Choice(models.Model):
     question = models.ForeignKey(Question,
-                                 on_delete=models.CASCADE)
+                                 on_delete=models.CASCADE, null=True)
     choice_text = models.CharField('선택지', max_length=200)
     votes = models.IntegerField(default=0)
 
